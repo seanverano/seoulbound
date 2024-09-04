@@ -8,10 +8,14 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #f0f2f5;
-    color: #333;
+    color: black;
 }
 
 .container {
@@ -46,11 +50,6 @@ body {
     margin-bottom: 0.5rem;
 }
 
-.welcome-text a {
-    color: #019963;
-    text-decoration: none;
-    font-weight: 600;
-}
 
 .nav-menu {
     margin-bottom: 2rem;
@@ -65,25 +64,22 @@ body {
 }
 
 .nav-menu a {
-    color: #333;
+    color: black;
     text-decoration: none;
     font-size: 1rem;
     display: flex;
     align-items: center;
     transition: color 0.3s;
     padding: 5px;
+    border-radius: 10px; 
+    border: 1px solid #fff;
 }
 
 .nav-menu a:hover {
     background-color: #F5EFE8;
-    border-radius: 10px; 
     border: 1px solid #F5EFE8;
 }
 
-.nav-menu a.active {
-    color: #019963;
-    font-weight: 600;
-}
 
 .nav-menu span {
     margin-right: 0.5rem;
@@ -102,26 +98,10 @@ body {
 }
 
 .top-nav h1 {
-    font-size: 1.75rem;
+    font-size: 2rem;
     font-weight: 600;
 }
 
-.top-nav nav a {
-    margin-left: 1.5rem;
-    color: #333;
-    text-decoration: none;
-    font-size: 1rem;
-    transition: color 0.3s;
-}
-
-.top-nav nav a:hover {
-    color: #019963;
-}
-
-.top-nav nav a.active {
-    color: #019963;
-    font-weight: 600;
-}
 
 .search-bar input {
     background-color: #F5EFE8;
