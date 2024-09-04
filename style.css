@@ -200,6 +200,12 @@ body {
     flex-direction: column;
     height: 300px; 
     margin-bottom: 1rem;
+    transition: transform 0.3s, box-shadow 0.3s; 
+}
+
+.card:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .card img {
@@ -209,7 +215,6 @@ body {
 }
 
 .card-info {
-    height: 20px;
     padding: 0.5rem;
     background-color: #fff;
     flex-grow: 1;
@@ -220,16 +225,16 @@ body {
 }
 
 .card-info-top {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
 }
 
 .card-info-top h3 {
-    font-size: 0.75rem;
+    font-size: 0.9rem;
     margin: 0;
 }
 
 .card-info-bottom p {
-    font-size: 0.65rem;
+    font-size: 0.75rem;
     color: #777;
     margin: 0;
 }
