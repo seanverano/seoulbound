@@ -1,13 +1,14 @@
 const apiKey = 'b3a643714b4535e159b5129c5a6e8180';
 const imgEndpoint = 'https://image.tmdb.org/t/p/w500';
 
-function fetchKoreanTVSeries(category, sortBy, containerClass) {
-    const url = `https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&with_original_language=ko&sort_by=${sortBy}&include_adult=false`;
+function fetchKoreanTVSeries(category, sortBy, containerClass, filterOngoing = false) {
+    const url = `https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&with_original_language=ko&sort_by=${sortBy}&include_adult=false&with_genres=18`;
 
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            displayContent(data.results.slice(0, 6), containerClass);
+            const results = filterOngoing ? data.results.filter(item => item.status === 'Returning Series') : data.results;
+            displayContent(results.slice(0, 6), containerClass);
         })
         .catch(error => console.error('Error fetching data:', error));
 }
@@ -46,5 +47,6 @@ function displayContent(items, containerClass) {
     container.appendChild(rowContainer);
 }
 
-fetchKoreanTVSeries('Popular', 'popularity.desc', 'drama-cards-popular');
+fetchKoreanTVSeries('Trending', 'popularity.desc', 'drama-cards-trending');
+
 fetchKoreanTVSeries('Newest', 'first_air_date.desc', 'drama-cards-newest');
