@@ -1,3 +1,7 @@
+/*FONTS*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -176,39 +180,56 @@ body {
 }
 
 .drama-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; 
+}
+
+.card-row {
+    display: flex;
+    gap: 1.5rem; 
 }
 
 .card {
+    flex: 1;
     background-color: #fff;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-5px);
+    display: flex;
+    flex-direction: column;
+    height: 300px; 
+    margin-bottom: 1rem;
 }
 
 .card img {
     width: 100%;
-    height: 250px;
+    height: 80%;
     object-fit: cover;
 }
 
-.card-content {
-    padding: 1rem;
+.card-info {
+    height: 20px;
+    padding: 0.5rem;
+    background-color: #fff;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
 }
 
-.card h3 {
-    font-size: 1.1rem;
+.card-info-top {
     margin-bottom: 0.5rem;
 }
 
-.card p {
+.card-info-top h3 {
+    font-size: 0.75rem;
+    margin: 0;
+}
+
+.card-info-bottom p {
+    font-size: 0.65rem;
     color: #777;
-    font-size: 0.9rem;
+    margin: 0;
 }
