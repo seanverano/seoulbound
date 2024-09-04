@@ -198,7 +198,8 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    height: 300px; 
+    max-width: 200px; 
+    max-height: 300px; 
     margin-bottom: 1rem;
     transition: transform 0.3s, box-shadow 0.3s; 
 }
@@ -229,12 +230,24 @@ body {
 }
 
 .card-info-top h3 {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     margin: 0;
 }
 
 .card-info-bottom p {
-    font-size: 0.75rem;
+    font-size: 0.65rem;
     color: #777;
     margin: 0;
+}
+
+.drama-cards-results-section {
+    display: none; 
+}
+
+.drama-cards-results {
+    display: flex; 
+}
+
+.drama-cards-results-section.hidden .search-results-heading {
+    display: none;
 }
