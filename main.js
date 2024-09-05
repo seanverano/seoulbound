@@ -65,14 +65,19 @@ function displayContent(items, containerClass) {
 
     container.appendChild(rowContainer);
 
-    document.querySelectorAll(`.${containerClass} .card`).forEach(card => {
-        card.addEventListener('click', function() {
-            const showId = this.getAttribute('data-id');
+    document.querySelector(`.card img`).addEventListener('click', function(event) {
+        // Check if the clicked element or its ancestors are relevant
+        const target = event.target;
+        const card = target.closest('.card');
+        
+        if (card && (target.matches('img') || target.closest('.card-info-top'))) {
+            const showId = card.getAttribute('data-id');
             if (showId) {
                 window.location.href = `details.html?id=${showId}`;
             }
-        });
+        }
     });
+    
 }
 
 fetchKoreanTVSeries('Trending', 'popularity.desc', 'drama-cards-trending');
@@ -106,25 +111,16 @@ document.querySelector('.search-bar input').addEventListener('input', function()
     }
 });
 
-function handleCardClick(event) {
-    const card = event.target.closest('.card');
-    if (card) {
-        const showId = card.getAttribute('data-id');
-        if (showId) {
-            window.location.href = `details.html?id=${showId}`;
-        } else {
-            console.error('No show details found on card.');
-        }
-    }
-}
 
 document.addEventListener('DOMContentLoaded', function() {
     document.body.addEventListener('click', function(event) {
         if (event.target.classList.contains('card-button')) {
+            
             const card = event.target.closest('.card');
             if (card) {
                 const item = {
                     id: card.getAttribute('data-id').toString(),
+                    name: card.querySelector('h3').textContent,
                     poster_path: card.querySelector('img').src,
                     first_air_date: card.querySelector('.card-info-bottom p').textContent
                 };
