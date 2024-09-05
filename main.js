@@ -74,8 +74,6 @@ function displayContent(items, containerClass) {
     });
 }
 
-
-
 fetchKoreanTVSeries('Trending', 'popularity.desc', 'drama-cards-trending');
 fetchKoreanTVSeries('Newest', 'first_air_date.desc', 'drama-cards-newest');
 
@@ -122,3 +120,4 @@ function handleCardClick(event) {
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.main-content').classList.add('fade-in');
 });
+
