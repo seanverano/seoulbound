@@ -66,7 +66,6 @@ function displayContent(items, containerClass) {
     container.appendChild(rowContainer);
 
     document.querySelector(`.card img`).addEventListener('click', function(event) {
-        // Check if the clicked element or its ancestors are relevant
         const target = event.target;
         const card = target.closest('.card');
         
