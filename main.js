@@ -27,6 +27,12 @@ function fetchSearchResults(query) {
 
 function displayContent(items, containerClass) {
     const container = document.querySelector(`.${containerClass}`);
+
+    if (!container) {
+        console.error(`Container with class ${containerClass} not found.`);
+        return;
+    }
+
     container.innerHTML = ''; 
 
     const rowContainer = document.createElement('div');
@@ -38,7 +44,7 @@ function displayContent(items, containerClass) {
 
         items.slice(i, i + 3).forEach(item => {
             const cardHTML = `
-                <div class="card">
+                <div class="card" data-id="${item.id}">
                     <img src="${item.poster_path ? imgEndpoint + item.poster_path : 'https://via.placeholder.com/500x750'}" alt="${item.name}">
                     <div class="card-info">
                         <div class="card-info-top">
@@ -57,7 +63,18 @@ function displayContent(items, containerClass) {
     }
 
     container.appendChild(rowContainer);
+
+    document.querySelectorAll(`.${containerClass} .card`).forEach(card => {
+        card.addEventListener('click', function() {
+            const showId = this.getAttribute('data-id');
+            if (showId) {
+                window.location.href = `details.html?id=${showId}`;
+            }
+        });
+    });
 }
+
+
 
 fetchKoreanTVSeries('Trending', 'popularity.desc', 'drama-cards-trending');
 fetchKoreanTVSeries('Newest', 'first_air_date.desc', 'drama-cards-newest');
@@ -89,4 +106,29 @@ document.querySelector('.search-bar input').addEventListener('input', function()
         searchResultsTitle.style.display = 'none';
     }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const trendingContainer = document.querySelector('.drama-cards-trending');
+    const newestContainer = document.querySelector('.drama-cards-newest');
+
+    if (trendingContainer) {
+        trendingContainer.addEventListener('click', handleCardClick);
+    }
+
+    if (newestContainer) {
+        newestContainer.addEventListener('click', handleCardClick);
+    }
+});
+
+function handleCardClick(event) {
+    const card = event.target.closest('.card');
+    if (card) {
+        const showId = card.getAttribute('data-id');
+        if (showId) {
+            window.location.href = `details.html?id=${showId}`;
+        } else {
+            console.error('No showId found on card.');
+        }
+    }
+}
 
