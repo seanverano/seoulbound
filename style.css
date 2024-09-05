@@ -172,6 +172,7 @@ body {
 }
 
 .card {
+    cursor: pointer;
     flex: 1;
     background-color: var(--charlie);
     border-radius: 10px;
@@ -192,11 +193,12 @@ body {
 
 .card img {
     width: 100%;
-    height: 80%;
+    height: 75%;
     object-fit: cover;
 }
 
 .card-info {
+    height: 25%;
     padding: 0.5rem;
     background-color: var(--charlie);
     flex-grow: 1;
@@ -215,10 +217,34 @@ body {
     margin: 0;
 }
 
+.card-info-bottom {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
 .card-info-bottom p {
     font-size: 0.65rem;
     color: #777;
     margin: 0;
+}
+
+.card-button {
+    font-size: .75rem;
+    text-decoration: none;
+    background-color: var(--fox);
+    color: var(--charlie);
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 5px;
+    display: inline-block;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-button:hover {
+    color: var(--beta);
+    background-color: var(--alpha);
 }
 
 .drama-cards-results-section {
@@ -316,7 +342,15 @@ body {
     opacity: 1;
 }
 
-
+.watchlist-header h1 {
+    margin: .5rem;
+    background-color: var(--charlie);
+    border-radius: 5px;
+    text-align: center;
+    font-size: 3rem;
+    color: var(--fox);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
 
 .attribution {
     background-color: var(--delta);

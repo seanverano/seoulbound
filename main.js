@@ -52,6 +52,7 @@ function displayContent(items, containerClass) {
                         </div>
                         <div class="card-info-bottom">
                             <p>${new Date(item.first_air_date).getFullYear()}</p>
+                            <button class="card-button">Add to Watchlist</button>
                         </div>
                     </div>
                 </div>
