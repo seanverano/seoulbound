@@ -282,6 +282,7 @@ body {
     align-items: center;
 }
 .back-button {
+    text-decoration: none;
     background-color: var(--fox);
     color: var(--charlie);
     border: none;
