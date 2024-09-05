@@ -232,13 +232,15 @@ body {
 }
 
 .actor-list {
-    background-color: var(--delta);
-    border: 2px solid var(--echo);
+    background-color: var(--charlie);
     justify-content: center;
     display: flex;
     gap: 10px;
     margin-top: 10px;
-    padding: 10px;
+    margin-bottom: 25px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .actor-card {
@@ -272,4 +274,26 @@ body {
     color: var(--fox);
     margin-bottom: .5em;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.back-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.back-button {
+    background-color: var(--fox);
+    color: var(--charlie);
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 30px;
+    display: inline-block;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.back-button:hover {
+    color: var(--beta);
+    background-color: var(--charlie);
 }
