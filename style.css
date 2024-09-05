@@ -124,25 +124,6 @@ body {
     width: 250px;
 }
 
-.profile-icons {
-    display: flex;
-    align-items: center;
-}
-
-.profile-icons span {
-    margin-left: 1rem;
-    font-size: 1.25rem;
-    cursor: pointer;
-}
-
-.profile-img-small {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-left: 1rem;
-}
-
 .drama-section h2 {
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
