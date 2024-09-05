@@ -106,9 +106,11 @@ body {
 }
 
 .main-content {
+    width: 100%;
     flex-grow: 1;
     padding: 2rem;
 }
+
 
 .top-nav {
     display: flex;
