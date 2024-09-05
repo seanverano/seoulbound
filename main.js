@@ -107,19 +107,6 @@ document.querySelector('.search-bar input').addEventListener('input', function()
     }
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    const trendingContainer = document.querySelector('.drama-cards-trending');
-    const newestContainer = document.querySelector('.drama-cards-newest');
-
-    if (trendingContainer) {
-        trendingContainer.addEventListener('click', handleCardClick);
-    }
-
-    if (newestContainer) {
-        newestContainer.addEventListener('click', handleCardClick);
-    }
-});
-
 function handleCardClick(event) {
     const card = event.target.closest('.card');
     if (card) {
@@ -127,7 +114,7 @@ function handleCardClick(event) {
         if (showId) {
             window.location.href = `details.html?id=${showId}`;
         } else {
-            console.error('No showId found on card.');
+            console.error('No show details found on card.');
         }
     }
 }
