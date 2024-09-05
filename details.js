@@ -22,13 +22,13 @@ function fetchShowDetails(showId) {
         })
         .then(data => {
             const detailsHTML = `
-                <h2>${data.name}</h2>
-                <p><strong>Description:</strong> ${data.overview}</p>
-                <p><strong>Genres:</strong> ${data.genres.map(genre => genre.name).join(', ')}</p>
-                <p><strong>Airing Date:</strong> ${data.first_air_date}</p>
-                <p><strong>Seasons:</strong> ${data.number_of_seasons}</p>
-                <p><strong>Episodes:</strong> ${data.number_of_episodes}</p>
-                <p><strong>Actors:</strong></p>
+                <h2 class="show-title">${data.name}</h2>
+                <p class="details-container"><strong>Description:</strong> ${data.overview}</p>
+                <p class="details-container"><strong>Genres:</strong> ${data.genres.map(genre => genre.name).join(', ')}</p>
+                <p class="details-container"><strong>Airing Date:</strong> ${data.first_air_date}</p>
+                <p class="details-container"><strong>Seasons:</strong> ${data.number_of_seasons}</p>
+                <p class="details-container"><strong>Episodes:</strong> ${data.number_of_episodes}</p>
+                <p class="details-container"><strong>Actors:</strong></p>
         <div class="actor-list">
             ${data.credits.cast.slice(0, 4).map(actor => `
                 <div class="actor-card">
@@ -42,3 +42,7 @@ function fetchShowDetails(showId) {
         })
         .catch(error => console.error('Error fetching show details:', error));
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('.main-content').classList.add('fade-in');
+});

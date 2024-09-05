@@ -231,19 +231,24 @@ body {
     display: none;
 }
 
+.details-container {
+    text-align: justify;
+    margin: 1rem;
+}
+
 .actor-list {
     background-color: var(--charlie);
     justify-content: center;
     display: flex;
     gap: 10px;
-    margin-top: 10px;
-    margin-bottom: 25px;
+    margin: .5rem;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .actor-card {
+    margin-top: .5rem;
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s; 
 }
@@ -267,12 +272,12 @@ body {
 }
 
 .show-title {
+    margin: .5rem;
     background-color: var(--charlie);
     border-radius: 5px;
     text-align: center;
     font-size: 3rem;
     color: var(--fox);
-    margin-bottom: .5em;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -286,6 +291,7 @@ body {
     background-color: var(--fox);
     color: var(--charlie);
     border: none;
+    margin: .5rem;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
@@ -297,4 +303,13 @@ body {
 .back-button:hover {
     color: var(--beta);
     background-color: var(--charlie);
+}
+
+.main-content {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.main-content.fade-in {
+    opacity: 1;
 }
