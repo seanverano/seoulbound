@@ -2,6 +2,14 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+
+:root {
+    --alpha: #f0f2f5;
+    --beta: black;
+    --charlie: #fff;
+    --delta: #F5EFE8;
+    --echo: #968759;
+}
 * {
     margin: 0;
     padding: 0;
@@ -14,8 +22,8 @@ html {
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #f0f2f5;
-    color: black;
+    background-color: var(--alpha);
+    color: var(--beta);
 }
 
 .container {
@@ -25,7 +33,7 @@ body {
 
 .sidebar {
     width: 250px;
-    background-color: #fff;
+    background-color: var(--charlie);
     padding: 2rem;
     display: flex;
     flex-direction: column;
@@ -64,7 +72,7 @@ body {
 }
 
 .nav-menu a {
-    color: black;
+    color: var(--beta);
     text-decoration: none;
     font-size: 1rem;
     display: flex;
@@ -72,12 +80,12 @@ body {
     transition: color 0.3s;
     padding: 5px;
     border-radius: 10px; 
-    border: 1px solid #fff;
+    border: 1px solid var(--charlie);
 }
 
 .nav-menu a:hover {
-    background-color: #F5EFE8;
-    border: 1px solid #F5EFE8;
+    background-color: var(--delta);
+    border: 1px solid var(--delta);
 }
 
 
@@ -104,9 +112,9 @@ body {
 
 
 .search-bar input {
-    background-color: #F5EFE8;
+    background-color: var(--delta);
     padding: 0.5rem 1rem;
-    border: 1px solid #968759;
+    border: 1px solid var(--echo);
     border-radius: 20px;
     font-size: 1rem;
     width: 250px;
@@ -161,7 +169,7 @@ body {
 
 .card {
     flex: 1;
-    background-color: #fff;
+    background-color: var(--charlie);
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -186,7 +194,7 @@ body {
 
 .card-info {
     padding: 0.5rem;
-    background-color: #fff;
+    background-color: var(--charlie);
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -241,4 +249,8 @@ body {
 .actor-card p {
     margin-top: 5px;
     font-weight: bold;
+}
+
+.show-title {
+    color: #019963;
 }
