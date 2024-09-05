@@ -229,7 +229,7 @@ body {
     margin: 0;
 }
 
-.card-button {
+.card-button, .card-button-two {
     font-size: .75rem;
     text-decoration: none;
     background-color: var(--fox);
@@ -243,6 +243,11 @@ body {
 }
 
 .card-button:hover {
+    color: var(--beta);
+    background-color: var(--alpha);
+}
+
+.card-button-two:hover {
     color: var(--beta);
     background-color: var(--alpha);
 }
@@ -368,4 +373,11 @@ body {
 
 .attribution img {
     max-width: 200px; 
+}
+
+.grid-watchlist-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; 
+    padding: 20px; 
 }
