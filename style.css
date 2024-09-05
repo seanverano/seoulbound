@@ -122,6 +122,12 @@ body {
     font-weight: 600;
 }
 
+.search-bar {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    gap: 40px;
+}
 
 .search-bar input {
     background-color: var(--delta);
@@ -130,6 +136,10 @@ body {
     border-radius: 20px;
     font-size: 1rem;
     width: 250px;
+}
+
+.search-bar li {
+    font-size: .6rem;
 }
 
 .drama-section h2 {
