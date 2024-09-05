@@ -119,3 +119,6 @@ function handleCardClick(event) {
     }
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('.main-content').classList.add('fade-in');
+});
