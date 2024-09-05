@@ -65,18 +65,19 @@ function displayContent(items, containerClass) {
 
     container.appendChild(rowContainer);
 
-    document.querySelector(`.card img`).addEventListener('click', function(event) {
-        const target = event.target;
-        const card = target.closest('.card');
-        
-        if (card && (target.matches('img') || target.closest('.card-info-top'))) {
-            const showId = card.getAttribute('data-id');
-            if (showId) {
-                window.location.href = `details.html?id=${showId}`;
+    document.querySelectorAll('.card img').forEach(img => {
+        img.addEventListener('click', function(event) {
+            const target = event.target;
+            const card = target.closest('.card');
+            
+            if (card && (target.matches('img') || target.closest('.card-info-top'))) {
+                const showId = card.getAttribute('data-id');
+                if (showId) {
+                    window.location.href = `details.html?id=${showId}`;
+                }
             }
-        }
-    });
-    
+        });
+    });   
 }
 
 fetchKoreanTVSeries('Trending', 'popularity.desc', 'drama-cards-trending');
