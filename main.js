@@ -119,6 +119,31 @@ function handleCardClick(event) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    document.body.addEventListener('click', function(event) {
+        if (event.target.classList.contains('card-button')) {
+            const card = event.target.closest('.card');
+            if (card) {
+                const item = {
+                    id: card.getAttribute('data-id').toString(),
+                    poster_path: card.querySelector('img').src,
+                    first_air_date: card.querySelector('.card-info-bottom p').textContent
+                };
+
+                let watchlist = JSON.parse(localStorage.getItem('watchlist')) || [];
+                if (!watchlist.some(watchedItem => watchedItem.id === item.id)) {
+                    watchlist.push(item);
+                    localStorage.setItem('watchlist', JSON.stringify(watchlist));
+                    alert('Added to watchlist!');
+                } else {
+                    alert('Item already in watchlist.');
+                }
+            }
+        }
+    });
+});
+
+
+document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.main-content').classList.add('fade-in');
 });
 
