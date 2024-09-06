@@ -1,3 +1,6 @@
+import { apiKey } from './config.js';
+import { imgEndpoint } from './config.js'
+
 document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
     const showId = urlParams.get('id');

@@ -1,5 +1,9 @@
-const apiKey = 'b3a643714b4535e159b5129c5a6e8180';
-const imgEndpoint = 'https://image.tmdb.org/t/p/w500';
+//MODULES
+
+import { apiKey } from './config.js';
+import { imgEndpoint } from './config.js'
+import { generateCardHTMLForAdd } from './card.js';
+
 
 function fetchKoreanTVSeries(category, sortBy, containerClass, filterOngoing = false) {
     const url = `https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&with_original_language=ko&sort_by=${sortBy}&include_adult=false&with_genres=18`;
@@ -43,20 +47,7 @@ function displayContent(items, containerClass) {
         row.className = 'card-row';
 
         items.slice(i, i + 3).forEach(item => {
-            const cardHTML = `
-                <div class="card" data-id="${item.id}">
-                    <img src="${item.poster_path ? imgEndpoint + item.poster_path : 'https://via.placeholder.com/500x750'}" alt="${item.name}">
-                    <div class="card-info">
-                        <div class="card-info-top">
-                            <h3>${item.name}</h3>
-                        </div>
-                        <div class="card-info-bottom">
-                            <p>${new Date(item.first_air_date).getFullYear()}</p>
-                            <button class="card-button">Add to Watchlist</button>
-                        </div>
-                    </div>
-                </div>
-            `;
+            const cardHTML = generateCardHTMLForAdd(item, imgEndpoint);
             row.innerHTML += cardHTML;
         });
 
@@ -108,9 +99,6 @@ document.querySelector('.search-bar input').addEventListener('input', function()
         toggleSectionVisibility(false);
     }
 });
-
-
-
 
 document.addEventListener('DOMContentLoaded', function() {
     document.body.addEventListener('click', function(event) {
