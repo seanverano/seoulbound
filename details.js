@@ -10,8 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 function fetchShowDetails(showId) {
-    const apiKey = 'b3a643714b4535e159b5129c5a6e8180';
-    const imgEndpoint = 'https://image.tmdb.org/t/p/w500';
     const detailsUrl = `https://api.themoviedb.org/3/tv/${showId}?api_key=${apiKey}&language=en-US&append_to_response=credits`;
 
     fetch(detailsUrl)
