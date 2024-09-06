@@ -85,31 +85,31 @@ fetchKoreanTVSeries('Newest', 'first_air_date.desc', 'drama-cards-newest');
 
 document.querySelector('.search-bar input').addEventListener('input', function() {
     const query = this.value;
-    const searchResultsSection = document.querySelector('.drama-cards-results-section');
-    const trendingSection = document.querySelector('.drama-cards-trending');
-    const newestSection = document.querySelector('.drama-cards-newest');
-    const trendingTitle = document.querySelector('.section-title');
-    const newestTitle = document.querySelector('.section-title-two');
-    const searchResultsTitle = document.querySelector('.section-title-three');
+    
+    const sections = [
+        { element: document.querySelector('.drama-cards-results-section'), title: document.querySelector('.section-title-three'), visibleOnSearch: true },
+        { element: document.querySelector('.drama-cards-trending'), title: document.querySelector('.section-title'), visibleOnSearch: false },
+        { element: document.querySelector('.drama-cards-newest'), title: document.querySelector('.section-title-two'), visibleOnSearch: false }
+    ];
 
-    if (query.length > 2) { 
-        trendingSection.style.display = 'none'; 
-        newestSection.style.display = 'none'; 
-        trendingTitle.style.display = 'none';
-        newestTitle.style.display = 'none';
-        searchResultsSection.style.display = 'block'; 
-        searchResultsTitle.style.display = 'block';
+    const toggleSectionVisibility = (showResults) => {
+        sections.forEach(section => {
+            section.element.style.display = (showResults === section.visibleOnSearch) ? 'block' : 'none';
+            if (section.title) {
+                section.title.style.display = (showResults === section.visibleOnSearch) ? 'block' : 'none';
+            }
+        });
+    };
+
+    if (query.length > 2) {
+        toggleSectionVisibility(true);
         fetchSearchResults(query);
     } else {
-
-        searchResultsSection.style.display = 'none'; 
-        trendingSection.style.display = 'block'; 
-        newestSection.style.display = 'block'; 
-        trendingTitle.style.display = 'block';
-        newestTitle.style.display = 'block';
-        searchResultsTitle.style.display = 'none';
+        toggleSectionVisibility(false);
     }
 });
+
+
 
 
 document.addEventListener('DOMContentLoaded', function() {
