@@ -42,16 +42,59 @@ body {
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
-.logo-container {
+.banner-container {
     height: 100vh;
     width: 100%;
     background-color: var(--alpha);
     display: flex;
     align-items: center; 
     justify-content: center; 
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 2rem;
 }
 
+.banner-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
 
+.banner-image {
+    display: block; 
+    width: 100%; 
+    height: auto; 
+    border-radius: 10px;
+    object-fit: cover;
+    transition: opacity 1s ease-in-out; 
+    opacity: 0;
+    z-index: 1;
+}
+
+.banner-info {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: var(--charlie); 
+    padding: 10px;
+    z-index: 2; 
+    transition: opacity 1s ease-in-out; 
+    opacity: 0;
+}
+
+.banner-image.active,
+.banner-info.active {
+    opacity: 1; 
+}
+
+.banner-info h2 {
+    font-size: 2rem;
+}
+
+.banner-info p {
+    margin: 5px 0;
+}
 
 .profile {
     width: 100%;
@@ -110,7 +153,6 @@ body {
     flex-grow: 1;
     padding: 2rem;
 }
-
 
 .top-nav {
     display: flex;
@@ -403,4 +445,12 @@ body {
     grid-template-columns: repeat(4, 1fr); 
     gap: 20px; 
     padding: 20px; 
+}
+
+.trailer-container {
+    margin: .5rem;
+    display: flex;
+    background: var(--beta);
+    justify-content: center;
+    border-radius: 5px;
 }
