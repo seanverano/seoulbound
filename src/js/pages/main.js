@@ -74,6 +74,8 @@ function displayContent(items, containerClass) {
 
 fetchKoreanTVSeries('Trending', 'popularity.desc', 'drama-cards-trending');
 fetchKoreanTVSeries('Newest', 'first_air_date.desc', 'drama-cards-newest');
+fetchKoreanTVSeries('Top Rated', 'vote_average.desc', 'drama-cards-top-rated');
+
 
 document.querySelector('.search-bar input').addEventListener('input', function() {
     const query = this.value;
@@ -81,7 +83,8 @@ document.querySelector('.search-bar input').addEventListener('input', function()
     const sections = [
         { element: document.querySelector('.drama-cards-results-section'), title: document.querySelector('.section-title-three'), visibleOnSearch: true },
         { element: document.querySelector('.drama-cards-trending'), title: document.querySelector('.section-title'), visibleOnSearch: false },
-        { element: document.querySelector('.drama-cards-newest'), title: document.querySelector('.section-title-two'), visibleOnSearch: false }
+        { element: document.querySelector('.drama-cards-newest'), title: document.querySelector('.section-title-two'), visibleOnSearch: false },
+        { element: document.querySelector('.drama-cards-top-rated'), title: document.querySelector('.section-title-four'), visibleOnSearch: false }
     ];
 
     const toggleSectionVisibility = (showResults) => {
