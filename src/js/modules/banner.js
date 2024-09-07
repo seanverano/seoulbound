@@ -4,15 +4,24 @@ import { apiKey } from '../modules/config.js';
 
 const imgEndpoint = 'https://image.tmdb.org/t/p/original';
 
+
 const dramaTitles = [
     'Squid Game',
     'Crash Landing on You',
-    'Goblin',
+    'All Of Us Are Dead',
+    'Sky Castle',
     'Queen of Tears',
-    'Signal'
+    'DP',
+    'Goblin',
+    'Reply 1988',
+    'My Love From Another Star',
+    'Vincenzo',
+    'Stairway To Heaven',
 ];
 
 let currentDramaIndex = 0;
+
+//This function fetches the k-dramas that I choose to display in the banner at the top of the homepage
 
 function fetchKoreanDramas() {
     const promises = dramaTitles.map(title => {
@@ -30,11 +39,12 @@ function fetchKoreanDramas() {
 
 function initializeBannerCarousel(dramas) {
     const container = document.querySelector('.banner-content');
-    container.innerHTML = ''; 
+    let fadeDuration = 4000; 
 
     function displayCurrentDrama() {
         const drama = dramas[currentDramaIndex];
-        
+
+        // Create new elements
         const img = document.createElement('img');
         img.src = drama.backdrop_path ? `${imgEndpoint}${drama.backdrop_path}` : 'https://via.placeholder.com/1920x1080';
         img.alt = drama.name;
@@ -44,13 +54,28 @@ function initializeBannerCarousel(dramas) {
         infoOverlay.className = 'banner-info';
         infoOverlay.innerHTML = `
             <h2>${drama.name}</h2>
-            <p>Year: ${new Date(drama.first_air_date).getFullYear()}</p>
-            <p>Rating: ${drama.vote_average.toFixed(1)}/10</p>
+            <p>${new Date(drama.first_air_date).getFullYear()}</p>
         `;
         
-        container.innerHTML = '';
+        container.innerHTML = ''; 
         container.appendChild(img);
         container.appendChild(infoOverlay);
+
+        setTimeout(() => {
+            img.classList.add('active');
+            infoOverlay.classList.add('active');
+        }, 10); 
+
+        // Fade out old elements
+        const existingElements = container.querySelectorAll('.banner-image, .banner-info');
+        existingElements.forEach(element => {
+            if (!element.classList.contains('active')) {
+                element.classList.remove('active');
+                setTimeout(() => {
+                    container.removeChild(element);
+                }, fadeDuration); 
+            }
+        });
     }
 
     function nextDrama() {
@@ -59,7 +84,7 @@ function initializeBannerCarousel(dramas) {
     }
 
     displayCurrentDrama(); 
-    setInterval(nextDrama, 3000); 
+    setInterval(nextDrama, 4000); 
 }
 
 document.addEventListener('DOMContentLoaded', fetchKoreanDramas);
