@@ -152,6 +152,8 @@ body {
     width: 100%;
     flex-grow: 1;
     padding: 2rem;
+    opacity: 0;
+    transition: opacity 3s ease-in-out;
 }
 
 .top-nav {
@@ -401,10 +403,6 @@ body {
     background-color: var(--charlie);
 }
 
-.main-content {
-    opacity: 0;
-    transition: opacity 3s ease-in-out;
-}
 
 .main-content.fade-in {
     opacity: 1;
@@ -453,4 +451,42 @@ body {
     background: var(--beta);
     justify-content: center;
     border-radius: 5px;
+}
+
+
+.kdrama-section {
+    justify-content: center;
+    margin: 20px 0;
+    padding: 20px;
+    background-color: var(--alpha);
+}
+
+.genre-filter {
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 20px;
+}
+
+.genre-filter select {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    color: var(--echo);
+    background-color: var(--delta);
+    border: 1px solid var(--echo);
+}
+
+.kdrama-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.genre-header h1{
+    margin: .5rem;
+    background-color: var(--charlie);
+    border-radius: 5px;
+    text-align: center;
+    font-size: 3rem;
+    color: var(--fox);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }

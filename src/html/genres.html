@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genres</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <main class="main-content">
+        <div class="genre-header">
+            <h1>Explore by Genres</h1>
+        </div>
+        <section class="kdrama-section">
+            <div class="genre-filter">
+                <select id="genreSelect">
+                    <option value="" disabled selected>Select a Genre</option>
+                    <option value="18">Drama</option>
+                    <option value="35">Comedy</option>
+                    <option value="10749">Romance</option>
+                    <option value="80">Crime</option>
+                    <option value="10759">Action & Adventure</option>
+                    <option value="10764">Music</option>
+                    <option value="10766">Fantasy</option>
+                </select>
+            </div>
+            <div class="kdrama-cards-container">
+            </div>
+            <div class="back-button-container">
+                <a href="index.html" id="back-to-home" class="back-button">← Home</a>
+            </div>
+        </section>
+    </main>
+    <script type="module" src="../js/pages/main.js"></script>
+    <script type="module" src="../js/pages/genres.js"></script>
+    <script type="module" src="../js/modules/config.js"></script>
+</body>
+</html>
