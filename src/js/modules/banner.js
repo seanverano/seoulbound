@@ -44,7 +44,6 @@ function initializeBannerCarousel(dramas) {
     function displayCurrentDrama() {
         const drama = dramas[currentDramaIndex];
 
-        // Create new elements
         const img = document.createElement('img');
         img.src = drama.backdrop_path ? `${imgEndpoint}${drama.backdrop_path}` : 'https://via.placeholder.com/1920x1080';
         img.alt = drama.name;
@@ -66,7 +65,6 @@ function initializeBannerCarousel(dramas) {
             infoOverlay.classList.add('active');
         }, 10); 
 
-        // Fade out old elements
         const existingElements = container.querySelectorAll('.banner-image, .banner-info');
         existingElements.forEach(element => {
             if (!element.classList.contains('active')) {
