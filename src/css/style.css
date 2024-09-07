@@ -116,15 +116,12 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    align-content: center;
     margin-bottom: 2rem;
 }
 
-.top-nav h1 {
-    font-size: 2rem;
-    font-weight: 600;
-}
-
 .search-bar {
+    width: 100%;
     display: flex;
     align-content: center;
     align-items: center;
@@ -132,16 +129,22 @@ body {
 }
 
 .search-bar input {
+    width: 100%;
     background-color: var(--delta);
     padding: 0.5rem 1rem;
     border: 1px solid var(--echo);
     border-radius: 20px;
     font-size: 1rem;
     width: 250px;
+    flex: 1;
 }
 
+.search-bar ul {
+    width: 100%;
+    flex: 1;
+}  
 .search-bar li {
-    font-size: .6rem;
+    font-size: 1rem;
 }
 
 .drama-section h2 {
@@ -232,7 +235,7 @@ body {
 }
 
 .card-button, .card-button-two {
-    font-size: .6rem;
+    font-size: .55rem;
     text-decoration: none;
     background-color: var(--fox);
     color: var(--charlie);

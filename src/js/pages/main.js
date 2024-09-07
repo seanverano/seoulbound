@@ -25,7 +25,7 @@ function fetchSearchResults(query) {
         .then(response => response.json())
         .then(data => {
             const koreanDramas = data.results.filter(item => item.origin_country.includes('KR'));
-            displayContent(koreanDramas.slice(0, 6), 'drama-cards-results');
+            displayContent(koreanDramas.slice(0, 8), 'drama-cards-results');
         })
         .catch(error => console.error('Error fetching data:', error));
 }
