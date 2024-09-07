@@ -1,7 +1,7 @@
 // This module generates the HTML for the ".card", 
 // It adds the image, title, release date (year) and the button
 
-
+import { imgEndpoint } from '../modules/config.js';
 
 //For main.js, there's an ADD to watchlist button
 export const generateCardHTMLForAdd = (item, imgEndpoint) => {
