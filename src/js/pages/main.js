@@ -1,8 +1,9 @@
-//MODULES
+//Importing API Key and Image Endpoint from the config module
+//Importing the function for generating cards from card module
 
-import { apiKey } from './config.js';
-import { imgEndpoint } from './config.js'
-import { generateCardHTMLForAdd } from './card.js';
+import { apiKey } from '../modules/config.js';
+import { imgEndpoint } from '../modules/config.js';
+import { generateCardHTMLForAdd } from '../modules/card.js';
 
 
 function fetchKoreanTVSeries(category, sortBy, containerClass, filterOngoing = false) {

@@ -1,5 +1,7 @@
-import { apiKey } from './config.js';
-import { imgEndpoint } from './config.js'
+//Importing API Key and Image Endpoint from the config module
+
+import { apiKey } from '../modules/config.js';
+import { imgEndpoint } from '../modules/config.js'
 
 document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);

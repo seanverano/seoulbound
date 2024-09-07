@@ -1,8 +1,9 @@
-//MODULES
+//Importing API Key and Image Endpoint from the config module
+//Importing the function for generating cards from card module
 
-import { apiKey } from './config.js';
-import { imgEndpoint } from './config.js'
-import { generateCardHTMLForRemove } from './card.js';
+import { apiKey } from '../modules/config.js';
+import { imgEndpoint } from '../modules/config.js';
+import { generateCardHTMLForRemove } from '../modules/card.js';
 
 document.addEventListener('DOMContentLoaded', function() {
     const watchlistContainer = document.getElementById('watchlist-container');
