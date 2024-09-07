@@ -56,6 +56,8 @@ function fetchShowDetails(showId) {
         .catch(error => console.error('Error fetching show details:', error));
 }
 
+//for fading transition
+
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.main-content').classList.add('fade-in');
 });

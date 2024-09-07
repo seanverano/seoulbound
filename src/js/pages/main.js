@@ -57,6 +57,8 @@ function displayContent(items, containerClass) {
 
     container.appendChild(rowContainer);
 
+// When user click an image/poster, it will redirect you to the details page
+
     document.querySelectorAll('.card img').forEach(img => {
         img.addEventListener('click', function(event) {
             const target = event.target;
@@ -76,6 +78,7 @@ fetchKoreanTVSeries('Trending', 'popularity.desc', 'drama-cards-trending');
 fetchKoreanTVSeries('Newest', 'first_air_date.desc', 'drama-cards-newest');
 fetchKoreanTVSeries('Top Rated', 'vote_average.desc', 'drama-cards-top-rated');
 
+//This handles the visibility of the top rated, trending and newest category's visibility when using the search bar
 
 document.querySelector('.search-bar input').addEventListener('input', function() {
     const query = this.value;
@@ -104,6 +107,8 @@ document.querySelector('.search-bar input').addEventListener('input', function()
     }
 });
 
+//This handles the adding of k-dramas to watchlist
+
 document.addEventListener('DOMContentLoaded', function() {
     document.body.addEventListener('click', function(event) {
         if (event.target.classList.contains('card-button')) {
@@ -130,6 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+//for fading transition
 
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.main-content').classList.add('fade-in');
