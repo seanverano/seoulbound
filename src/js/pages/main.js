@@ -13,7 +13,7 @@ function fetchKoreanTVSeries(category, sortBy, containerClass, filterOngoing = f
         .then(response => response.json())
         .then(data => {
             const results = filterOngoing ? data.results.filter(item => item.status === 'Returning Series') : data.results;
-            displayContent(results.slice(0, 6), containerClass);
+            displayContent(results.slice(0, 4), containerClass);
         })
         .catch(error => console.error('Error fetching data:', error));
 }
@@ -43,11 +43,11 @@ function displayContent(items, containerClass) {
     const rowContainer = document.createElement('div');
     rowContainer.className = 'card-row-container';
 
-    for (let i = 0; i < items.length; i += 3) {
+    for (let i = 0; i < items.length; i += 4) {
         const row = document.createElement('div');
         row.className = 'card-row';
 
-        items.slice(i, i + 3).forEach(item => {
+        items.slice(i, i + 4).forEach(item => {
             const cardHTML = generateCardHTMLForAdd(item, imgEndpoint);
             row.innerHTML += cardHTML;
         });
