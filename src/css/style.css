@@ -139,12 +139,26 @@ body {
     flex: 1;
 }
 
-.search-bar ul {
-    width: 100%;
-    flex: 1;
-}  
-.search-bar li {
-    font-size: 1rem;
+.instructions-container {
+    background-color: var(--delta);
+    padding: 20px;
+    margin-top: auto; 
+    padding-top: 1rem; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.instructions-container h3 {
+    color: var(--fox);
+    margin-bottom: 1rem;
+}
+
+.instructions {
+    color: var(--beta);
+    font-size: .65rem;  
 }
 
 .drama-section h2 {
