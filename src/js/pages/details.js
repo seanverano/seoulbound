@@ -34,7 +34,7 @@ function fetchShowDetails(showId) {
                 <p class="details-container"><strong>Episodes:</strong> ${data.number_of_episodes}</p>
                 <p class="details-container"><strong>Actors:</strong></p>
         <div class="actor-list">
-            ${data.credits.cast.slice(0, 4).map(actor => `
+            ${data.credits.cast.slice(0, 5).map(actor => `
                 <div class="actor-card">
                     <img src="${actor.profile_path ? imgEndpoint + actor.profile_path : 'https://via.placeholder.com/150'}" alt="${actor.name}">
                     <p>${actor.name}</p>

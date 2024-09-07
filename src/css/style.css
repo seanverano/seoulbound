@@ -164,6 +164,7 @@ body {
 .drama-cards {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 1.5rem; 
 }
 
@@ -214,7 +215,7 @@ body {
 }
 
 .card-info-top h3 {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     margin: 0;
 }
 
@@ -225,13 +226,13 @@ body {
     justify-content: space-between;
 }
 .card-info-bottom p {
-    font-size: 0.65rem;
+    font-size: 0.5rem;
     color: #777;
     margin: 0;
 }
 
 .card-button, .card-button-two {
-    font-size: .75rem;
+    font-size: .6rem;
     text-decoration: none;
     background-color: var(--fox);
     color: var(--charlie);
@@ -378,7 +379,7 @@ body {
 
 .grid-watchlist-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(4, 1fr); 
     gap: 20px; 
     padding: 20px; 
 }
