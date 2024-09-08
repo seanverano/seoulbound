@@ -27,6 +27,15 @@
         bottom: 40px;
     }
 
+    .banner-info h2 {
+        font-size: 1.6rem;
+    }
+    
+    .banner-info p {
+        font-size: .8rem;
+        margin: 5px 0;
+    }
+
     .card-info-top h3 {
         font-size: 0.6rem;
     }    
@@ -69,9 +78,55 @@
         position: absolute;
         bottom: 10px;
     }
+    
+    .banner-info h2 {
+        font-size: 3rem;
+    }
+    
+    .banner-info p {
+        font-size: 1.5rem;
+        margin: 5px 0;
+    }
+
+    .card-info-top h3 {
+        font-size: 0.65rem;
+    }    
+
+    .card-info-bottom p {
+        font-size: .55rem;
+    }
+
+    .card-button, .card-button-two {
+        font-size: .55rem;
+    }
   }
   
   
-  @media (min-width: 1280px) {
+  @media (min-width: 1280px) and (max-width: 1440px) {
     
+    .banner-info {
+        position: absolute;
+        bottom: 120px;
+    }
+
+    .banner-info h2 {
+        font-size: 3rem;
+    }
+    
+    .banner-info p {
+        font-size: 1.5rem;
+        margin: 5px 0;
+    }
+
+    .card-info-top h3 {
+        font-size: 0.85rem;
+    }    
+
+    .card-info-bottom p {
+        font-size: .7rem;
+    }
+
+    .card-button, .card-button-two {
+        font-size: .7rem;
+    }
   }
