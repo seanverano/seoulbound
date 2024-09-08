@@ -1,5 +1,184 @@
 /* FOR MOBILE PHONES */
 
+@media (min-width: 320px) and (max-width: 480px) {
+    .sidebar-mobile.open {
+        display: block;
+    }
+
+    .sidebar-mobile {
+        display: flex;
+        flex-direction: row;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 250px;
+        height: 100%;
+        z-index: 999;
+        background: #fff;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+    }
+    .sidebar-mobile img {
+        height: 60%;
+        width: 60%;
+        margin-top: 2rem;
+    }
+    .nav-menu-mobile {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .nav-menu-mobile {
+        padding: 1rem;
+        margin-bottom: 3rem;
+    }
+    
+    .nav-menu-mobile ul {
+        list-style: none;
+    }
+    
+    .nav-menu-mobile li {
+        margin-bottom: 1rem;
+    }
+    
+    .mobile-menu {
+        flex: 1;
+        margin-top: 5rem;
+    }
+    
+    .nav-menu-mobile a {
+        color: var(--beta);
+        text-decoration: none;
+        font-size: .75rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        transition: color 0.3s;
+        padding: 5px;
+        border-radius: 10px; 
+        color: var(--beta);
+    }
+
+    .instructions-container-mobile {
+        flex: 1;
+        height: 40%;
+        width: 40%;
+        background-color: var(--delta);
+        padding: 20px;
+        padding-top: 1rem; 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .instructions-container-mobile h3 {
+        font-size: .75rem;
+        color: var(--fox);
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    .instructions-mobile {
+        color: var(--beta);
+        font-size: .5rem;  
+    }
+
+    .sidebar-mobile.open {
+        transform: translateX(0);
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+
+    .sidebar-mobile {
+        width: 100%;
+        height: 100%;
+    }
+
+    .banner-container {
+        width: 100%;
+        height: 20%;
+        margin-bottom: .2rem;
+        padding: 0;
+    }
+
+    .banner-content {
+        width: 100%;
+        height: 100%;
+    }
+
+    .banner-info {
+        position: absolute;
+        bottom: 20px;
+    }
+
+    .banner-info h2 {
+        font-size: 1.2rem;
+    }
+    
+    .banner-info p {
+        font-size: .6rem;
+        margin: 5px 0;
+    }
+
+    .card {
+        max-width: 33.33rem;
+        max-width: 70rem;
+    }
+
+    .card img{
+        max-width: 33.33rem;
+        max-width: 100%;
+    }
+
+    .card-info-top h3 {
+        display: none;
+    }    
+
+    .card-info-bottom p {
+        display: none;
+    }
+
+    .card-button, .card-button-two {
+        display: flex;
+        justify-content: center;
+        font-size: .35rem;
+    }
+    
+    .kdrama-cards-container {
+        display: grid;
+        justify-content: center;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+    }
+    .actor-list{
+        height: 10rem;
+    }
+
+    .actor-card {
+        width: 3rem;
+        height: 6rem;
+    }
+
+    .actor-card img {
+        width: 3rem;
+        height: 6rem;
+    }
+
+    .actor-card p {
+        font-size: .4rem;
+    }
+}
+
+
 @media (min-width: 481px) and (max-width: 768px) {
     .sidebar-mobile.open {
         display: block;
