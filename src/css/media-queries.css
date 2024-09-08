@@ -1,1 +1,77 @@
-/*test*/
+/* FOR MOBILE PHONES */
+
+@media (max-width: 767px) {
+    .sidebar {
+        width: 75px;
+    }
+  }
+
+  /* FOR MOBILE (LANDSCAPE) AND TABLETS (PORTRAIT) */
+  
+@media (min-width: 768px) and (max-width: 1024px) {
+    
+    .banner-container {
+        width: 100%;
+        height: 25%;
+        margin-bottom: .2rem;
+        padding: 0;
+    }
+
+    .banner-content {
+        width: 100%;
+        height: 100%;
+    }
+
+    .banner-info {
+        position: absolute;
+        bottom: 40px;
+    }
+
+    .card-info-top h3 {
+        font-size: 0.6rem;
+    }    
+
+    .card-info-bottom p {
+        font-size: .4rem;
+    }
+
+    .card-button, .card-button-two {
+        font-size: .4rem;
+    }
+
+    .actor-list{
+        height: 13rem;
+    }
+
+    .actor-card {
+        width: 6.25rem;
+        height: 8.5rem;
+    }
+
+    .actor-card img {
+        width: 6.25rem;
+        height: 8.5rem;
+    }
+
+    .actor-card p {
+        font-size: .65rem;
+    }
+  }
+  
+  /* FOR TABLETS (LANDSCAPE) AND SMALL PC */
+  @media (min-width: 1024px) and (max-width: 1280px) {
+    
+    .banner-container {
+        margin-bottom: 2rem;
+    }
+
+    .banner-info {
+        position: absolute;
+        bottom: 10px;
+    }
+  }
+  
+  
+  @media (min-width: 1280px) {
+    
+  }
