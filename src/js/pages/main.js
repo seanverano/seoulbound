@@ -5,29 +5,36 @@ import { apiKey } from '../modules/config.js';
 import { imgEndpoint } from '../modules/config.js';
 import { generateCardHTMLForAdd } from '../modules/card.js';
 
+//Fetches korean tv shows (kdrama) using TMDB API and only including non-movie, non-variety and non-reality shows.
 
-function fetchKoreanTVSeries(category, sortBy, containerClass, filterOngoing = false) {
+async function fetchKoreanTVSeries(category, sortBy, containerClass, filterOngoing = false) {
     const url = `https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&with_original_language=ko&sort_by=${sortBy}&include_adult=false&with_genres=18`;
 
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            const results = filterOngoing ? data.results.filter(item => item.status === 'Returning Series') : data.results;
-            displayContent(results.slice(0, 4), containerClass);
-        })
-        .catch(error => console.error('Error fetching data:', error));
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        const results = filterOngoing ? data.results.filter(item => item.status === 'Returning Series') : data.results;
+        displayContent(results.slice(0, 4), containerClass);
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
 }
 
-function fetchSearchResults(query) {
+//handles the kdrama that is being populated when using the search bar
+//only maximum of of 16 kdrama/cards will be shown using slice
+//then the 2nd function displays the kdrama in the assigned container (only 4 items in a row)
+
+async function fetchSearchResults(query) {
     const url = `https://api.themoviedb.org/3/search/tv?api_key=${apiKey}&query=${encodeURIComponent(query)}&language=en-US`;
 
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            const koreanDramas = data.results.filter(item => item.origin_country.includes('KR'));
-            displayContent(koreanDramas.slice(0, 8), 'drama-cards-results');
-        })
-        .catch(error => console.error('Error fetching data:', error));
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        const koreanDramas = data.results.filter(item => item.origin_country.includes('KR'));
+        displayContent(koreanDramas.slice(0, 16), 'drama-cards-results');
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
 }
 
 function displayContent(items, containerClass) {
@@ -58,8 +65,8 @@ function displayContent(items, containerClass) {
     container.appendChild(rowContainer);
 
 // When user click an image/poster, it will redirect you to the details page
-
-    document.querySelectorAll('.card img').forEach(img => {
+    
+document.querySelectorAll('.card img').forEach(img => {
         img.addEventListener('click', function(event) {
             const target = event.target;
             const card = target.closest('.card');
@@ -73,6 +80,8 @@ function displayContent(items, containerClass) {
         });
     });   
 }
+
+//fetching the 12 kdrama shown in the homepage by top rated, trending/popularity and upcoming/newest
 
 fetchKoreanTVSeries('Trending', 'popularity.desc', 'drama-cards-trending');
 fetchKoreanTVSeries('Newest', 'first_air_date.desc', 'drama-cards-newest');
@@ -108,6 +117,8 @@ document.querySelector('.search-bar input').addEventListener('input', function()
 });
 
 //This handles the adding of k-dramas to watchlist
+//An alert msg will be shown once the adding of the item is successful
+//if it's already added then a new alert msg will be shown
 
 document.addEventListener('DOMContentLoaded', function() {
     document.body.addEventListener('click', function(event) {
@@ -140,4 +151,3 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.main-content').classList.add('fade-in');
 });
-

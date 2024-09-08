@@ -5,6 +5,10 @@ import { apiKey } from '../modules/config.js';
 import { imgEndpoint } from '../modules/config.js';
 import { generateCardHTMLForRemove } from '../modules/card.js';
 
+//Handles the watchlist container
+//If the user's watchlist is empty it will display a msg
+//Then an event listener for a button to remove items on watchlist
+
 document.addEventListener('DOMContentLoaded', function() {
     const watchlistContainer = document.getElementById('watchlist-container');
     const watchlist = JSON.parse(localStorage.getItem('watchlist')) || [];
@@ -39,6 +43,7 @@ function removeFromWatchlist(itemId) {
     localStorage.setItem('watchlist', JSON.stringify(watchlist));
 }
 
+//fading animation when redirecting to this page
 
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.main-content').classList.add('fade-in');
