@@ -9,28 +9,28 @@ import { generateCardHTMLForAdd } from '../modules/card.js';
 // Sorts out by popularity so the current popular k-drama will populate first
 // Limits the number of cards being displayed by using slice and assigning maximum cards
 
-function fetchKDramaByGenre(genreId, maxCards = 16) {
+async function fetchKDramaByGenre(genreId, maxCards = 16) {
     const genreUrl = `https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&with_genres=${genreId}&with_original_language=ko&language=en-US&sort_by=popularity.desc`;
 
-    fetch(genreUrl)
-        .then(response => response.json())
-        .then(data => {
-            const kdramas = data.results.filter(show => {
-                return show.genre_ids.includes(18) && !show.genre_ids.includes(10764) && !show.genre_ids.includes(10767);
-            });
-            const sortedKdramas = kdramas.sort((a, b) => b.popularity - a.popularity);
-            const limitedKdramas = sortedKdramas.slice(0, maxCards);
-            const kdramaCardsHTML = limitedKdramas.map(show => generateCardHTMLForAdd(show, imgEndpoint)).join('');
-            const container = document.querySelector('.kdrama-cards-container');
+    try {
+        const response = await fetch(genreUrl);
+        const data = await response.json();
+        const kdramas = data.results.filter(show => {
+            return show.genre_ids.includes(18) && !show.genre_ids.includes(10764) && !show.genre_ids.includes(10767);
+        });
+        const sortedKdramas = kdramas.sort((a, b) => b.popularity - a.popularity);
+        const limitedKdramas = sortedKdramas.slice(0, maxCards);
+        const kdramaCardsHTML = limitedKdramas.map(show => generateCardHTMLForAdd(show, imgEndpoint)).join('');
+        const container = document.querySelector('.kdrama-cards-container');
 
-            if (container) {
-                container.innerHTML = kdramaCardsHTML;
-                addImageClickListeners();
-            }
-        })
-        .catch(error => console.error('Error fetching K-Dramas:', error));
+        if (container) {
+            container.innerHTML = kdramaCardsHTML;
+            addImageClickListeners();
+        }
+    } catch (error) {
+        console.error('Error fetching K-Dramas:', error);
+    }
 }
-
 
 // When user click an image/poster, it will redirect you to the details page
 
@@ -91,4 +91,3 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.main-content').classList.add('fade-in');
 });
-

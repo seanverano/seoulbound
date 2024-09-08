@@ -455,7 +455,6 @@ body {
 
 
 .kdrama-section {
-    justify-content: center;
     margin: 20px 0;
     padding: 20px;
     background-color: var(--alpha);
@@ -481,6 +480,9 @@ body {
 
 .kdrama-cards-container {
     display: grid;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
 }
