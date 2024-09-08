@@ -13,7 +13,6 @@
     --fox: #019963;
 }
 
-@media (min-width: 1280px) {
 
 * {
     margin: 0;
@@ -498,4 +497,20 @@ body {
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
+.sidebar-mobile {
+    display: none;
+}
+
+.hamburger-menu {
+    cursor: pointer;
+    display: none;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+}
+
+.hamburger-icon {
+    font-size: 24px;
+    color: var(--fox);
 }

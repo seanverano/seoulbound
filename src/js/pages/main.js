@@ -5,6 +5,15 @@ import { apiKey } from '../modules/config.js';
 import { imgEndpoint } from '../modules/config.js';
 import { generateCardHTMLForAdd } from '../modules/card.js';
 
+//hamburger menu at 768px
+
+function toggleSidebar() {
+    const sidebar = document.querySelector('.sidebar-mobile');
+    sidebar.classList.toggle('open');
+}
+
+window.toggleSidebar = toggleSidebar; 
+
 //Fetches korean tv shows (kdrama) using TMDB API and only including non-movie, non-variety and non-reality shows.
 
 async function fetchKoreanTVSeries(category, sortBy, containerClass, filterOngoing = false) {
