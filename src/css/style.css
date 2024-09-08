@@ -464,6 +464,10 @@ body {
 .genre-filter {
     font-family: 'Poppins', sans-serif;
     margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
 }
 
 .genre-filter select {
@@ -490,3 +494,4 @@ body {
     color: var(--fox);
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
+
