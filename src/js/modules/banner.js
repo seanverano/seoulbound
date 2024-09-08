@@ -6,7 +6,7 @@ const imgEndpoint = 'https://image.tmdb.org/t/p/original';
 
 
 const dramaTitles = [
-    'Squid Game',
+    'Pachinko',
     'Crash Landing on You',
     'All Of Us Are Dead',
     'Sky Castle',

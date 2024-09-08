@@ -13,18 +13,22 @@
         </div>
         <section class="kdrama-section">
             <div class="genre-filter">
-                <select id="genreSelect">
-                    <option value="" disabled selected>Select a Genre</option>
+                <select id="genreSelect" class="select-genre">
+                    <option value="" disabled selected>⚙️ Select a genre...</option>
                     <option value="18">Drama</option>
                     <option value="35">Comedy</option>
                     <option value="10749">Romance</option>
                     <option value="80">Crime</option>
                     <option value="10759">Action & Adventure</option>
-                    <option value="10764">Music</option>
                     <option value="10766">Fantasy</option>
                 </select>
             </div>
             <div class="kdrama-cards-container">
+            </div>
+            <div class="pagination-controls">
+                <button id="prev-btn" disabled>Previous</button>
+                <span id="current-page"></span>
+                <button id="next-btn">Next</button>
             </div>
             <div class="back-button-container">
                 <a href="index.html" id="back-to-home" class="back-button">← Home</a>
