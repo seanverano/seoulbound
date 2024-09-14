@@ -115,10 +115,6 @@
         height: 100%;
     }
 
-    .banner-info {
-        position: absolute;
-        bottom: 20px;
-    }
 
     .banner-info h2 {
         font-size: 1.2rem;
@@ -294,10 +290,6 @@
         height: 100%;
     }
 
-    .banner-info {
-        position: absolute;
-        bottom: 20px;
-    }
 
     .banner-info h2 {
         font-size: 1.6rem;
@@ -371,10 +363,6 @@
         height: 100%;
     }
 
-    .banner-info {
-        position: absolute;
-        bottom: 40px;
-    }
 
     .banner-info h2 {
         font-size: 1.6rem;
@@ -424,12 +412,6 @@
         margin-bottom: 2rem;
     }
 
-    .banner-info {
-        position: absolute;
-        bottom: 40px;
-        left: 40px;
-    }
-    
     .banner-info h2 {
         font-size: 2.5rem;
     }
@@ -454,12 +436,13 @@
   
   
   @media (min-width: 1280px) and (max-width: 1440px) {
-    
-    .banner-info {
-        position: absolute;
-        bottom: 120px;
+    .banner-container {
+        height: 50vh;
     }
-
+    .banner-content {
+        height: 100%;
+    }
+    
     .banner-info h2 {
         font-size: 3rem;
     }
@@ -484,11 +467,12 @@
 
   @media (min-width: 1440px) and (max-width: 1650px) {
     
-    .banner-info {
-        position: absolute;
-        bottom: 120px;
+    .banner-container {
+        height: 50vh;
     }
-
+    .banner-content {
+        height: 100%;
+    }
     .banner-info h2 {
         font-size: 3rem;
     }
