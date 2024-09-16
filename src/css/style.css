@@ -61,7 +61,7 @@ body {
   content: "";
   position: absolute;
   height: 120%;
-  border-left: 3px dashed var(--alpha);
+  border-left: 3px dashed var(--charlie);
   animation: roll 4s infinite;
 }
 
@@ -109,6 +109,7 @@ body {
 .container {
   display: flex;
   min-height: 100vh;
+  visibility: hidden;
 }
 
 .sidebar {
