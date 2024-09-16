@@ -9,6 +9,7 @@ import { generateCardHTMLForAdd } from "../modules/card.js";
 
 window.onload = function () {
   setTimeout(function () {
+    document.querySelector(".container").style.visibility = "visible";
     document.querySelector(".preloader").style.display = "none";
   }, 4000);
 };

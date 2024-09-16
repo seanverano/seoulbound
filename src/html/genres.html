@@ -1,39 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Genres</title>
-    <link rel="stylesheet" href="/src/css/style.css">
-    <link rel="stylesheet" href="/src/css/media-queries.css">
-    <link rel="icon" href="/assets/images/favicon.png" sizes="48x48" type="image/png">
-</head>
-<body>
+    <link rel="stylesheet" href="/src/css/style.css" />
+    <link rel="stylesheet" href="/src/css/media-queries.css" />
+    <link
+      rel="icon"
+      href="/assets/images/favicon.png"
+      sizes="48x48"
+      type="image/png"
+    />
+  </head>
+  <body>
     <main class="main-content">
-        <div class="genre-header">
-            <h1>Explore by Genres</h1>
+      <div class="genre-header">
+        <h1>Explore by Genres</h1>
+      </div>
+      <section class="kdrama-section">
+        <div class="genre-filter">
+          <select id="genreSelect" class="select-genre">
+            <option value="" disabled selected>⚙️ Select a genre...</option>
+            <option value="18">Drama</option>
+            <option value="35">Comedy</option>
+            <option value="10749">Romance</option>
+            <option value="80">Crime</option>
+            <option value="10759">Action & Adventure</option>
+            <option value="10766">Fantasy</option>
+          </select>
         </div>
-        <section class="kdrama-section">
-            <div class="genre-filter">
-                <select id="genreSelect" class="select-genre">
-                    <option value="" disabled selected>⚙️ Select a genre...</option>
-                    <option value="18">Drama</option>
-                    <option value="35">Comedy</option>
-                    <option value="10749">Romance</option>
-                    <option value="80">Crime</option>
-                    <option value="10759">Action & Adventure</option>
-                    <option value="10766">Fantasy</option>
-                </select>
-            </div>
-            <div class="kdrama-cards-container">
-            </div>
-            <div class="back-button-container">
-                <a href="index.html" id="back-to-home" class="back-button">← Home</a>
-            </div>
-        </section>
+        <div class="kdrama-cards-container"></div>
+        <div class="back-button-container">
+          <a href="index.html" id="back-to-home" class="back-button">← Home</a>
+        </div>
+      </section>
     </main>
     <script type="module" src="/src/js/pages/genres.js"></script>
     <script type="module" src="/src/js/modules/config.js"></script>
     <script type="module" src="/src/js/modules/card.js"></script>
-</body>
+  </body>
 </html>
