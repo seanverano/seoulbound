@@ -1,97 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Seoulbound</title>
-    <link rel="stylesheet" href="/src/css/style.css">
-    <link rel="stylesheet" href="/src/css/media-queries.css">
-    <link rel="icon" href="/assets/images/favicon.png" sizes="48x48" type="image/png">
-</head>
-<body>
+    <link rel="stylesheet" href="/src/css/style.css" />
+    <link rel="stylesheet" href="/src/css/media-queries.css" />
+    <link
+      rel="icon"
+      href="/assets/images/favicon.png"
+      sizes="48x48"
+      type="image/png"
+    />
+  </head>
+  <body>
+    <div class="preloader">
+      <img src="../../assets/images/logo-no-background.svg" />
+      <div class="filmstrip"></div>
+    </div>
     <div class="container">
-        <aside class="sidebar">
-            <div class="profile">
-                <img src="../../assets/images/logo-no-background.svg" alt="Logo" class="profile-img">
-            </div>
-            <nav class="nav-menu">
-                <ul>
-                    <li><a href="index.html"><span>🏠</span>Home</a></li>
-                    <li><a href="watchlist.html"><span>📌</span>Watchlist</a></li>
-                    <li><a href="genres.html"><span>⚙️</span>Genres</a></li>
-                </ul>
-                <ul class="instructions-container">
-                    <h3>Getting Started</h3>
-                    <li class="instructions">Browse for your favorite K-Dramas using the search bar.</li>
-                    <li class="instructions">Filter using genres through the sidebar.</li>
-                    <li class="instructions">Click on a poster to view more details.</li>
-                    <li class="instructions">Add or remove K-Dramas from your watchlist using the button below the poster.</li>
-                    <li class="instructions">Access your watchlist through the sidebar.</li>
-                </ul>
-            </nav>
-            <div class="attribution">
-                <p>Developed by Sean Dustin Verano</p>
-                <p>Data provided from TMDb</p>
-                <p>© 2024 All rights reserved</p>
-                <a href="https://www.themoviedb.org/" target="_blank" rel="noopener noreferrer">
-                    <img src="../../assets/images/TMDB-Attribution.svg" alt="TMDb Logo">
-                </a>
-            </div>
-        </aside>
-        <div class="hamburger-menu" onclick="toggleSidebar()">
-            <span class="hamburger-icon">&#9776;</span>
+      <aside class="sidebar">
+        <div class="profile">
+          <img
+            src="../../assets/images/logo-no-background.svg"
+            alt="Logo"
+            class="profile-img"
+          />
         </div>
-        <aside class="sidebar-mobile">
-            <div class="profile">
-                <img src="../../assets/images/logo-no-background.svg" alt="Logo" class="profile-img">
-            </div>
-            <nav class="nav-menu-mobile">
-                <ul class = "mobile-menu">
-                    <li><a href="index.html"><span>🏠</span>Home</a></li>
-                    <li><a href="watchlist.html"><span>📌</span>Watchlist</a></li>
-                    <li><a href="genres.html"><span>⚙️</span>Genres</a></li>
-                </ul>
-                <ul class="instructions-container-mobile">
-                    <h3>Getting Started</h3>
-                    <li class="instructions-mobile">Browse for your favorite K-Dramas using the search bar.</li>
-                    <li class="instructions-mobile">Filter using genres through the sidebar.</li>
-                    <li class="instructions-mobile">Click on a poster to view more details.</li>
-                    <li class="instructions-mobile">Add or remove K-Dramas from your watchlist using the button below the poster.</li>
-                    <li class="instructions-mobile">Access your watchlist through the sidebar.</li>
-                </ul>
-            </nav>
-        </aside>
-        <main class="main-content">
-            <div class="banner-container">
-                <div class="banner-content">
-                </div>
-            </div>
-            <header class="top-nav">
-                <div class="search-bar">
-                    <input type="text" placeholder="🔎 Search dramas...">
-                </div>
-            </header>
-            <section class="drama-section drama-cards-results-section">
-                <h2 class="section-title-three">Search Results</h2>
-                <div class="drama-cards drama-cards-results">
-                </div>
-            </section>
-            <section class="drama-section">
-                <h2 class="section-title-four" id="topRated">Top Rated</h2>
-                <div class="drama-cards drama-cards-top-rated">            
-                </div>
-            </section>
-            <section class="drama-section">
-                <h2 class="section-title" id="trending">Trending</h2>
-                <div class="drama-cards drama-cards-trending">             
-                </div>
-            </section>
-            <section class="drama-section">
-                <h2 class="section-title-two" id="newest">Upcoming</h2>
-                <div class="drama-cards drama-cards-newest">            
-                </div>
-            </section>
-        </main>
+        <nav class="nav-menu">
+          <ul>
+            <li>
+              <a href="index.html"><span>🏠</span>Home</a>
+            </li>
+            <li>
+              <a href="watchlist.html"><span>📌</span>Watchlist</a>
+            </li>
+            <li>
+              <a href="genres.html"><span>⚙️</span>Genres</a>
+            </li>
+          </ul>
+          <ul class="instructions-container">
+            <h3>Getting Started</h3>
+            <li class="instructions">
+              Browse for your favorite K-Dramas using the search bar.
+            </li>
+            <li class="instructions">
+              Filter using genres through the sidebar.
+            </li>
+            <li class="instructions">
+              Click on a poster to view more details.
+            </li>
+            <li class="instructions">
+              Add or remove K-Dramas from your watchlist using the button below
+              the poster.
+            </li>
+            <li class="instructions">
+              Access your watchlist through the sidebar.
+            </li>
+          </ul>
+        </nav>
+        <div class="attribution">
+          <p>Developed by Sean Dustin Verano</p>
+          <p>Data provided from TMDb</p>
+          <p>© 2024 All rights reserved</p>
+          <a
+            href="https://www.themoviedb.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="../../assets/images/TMDB-Attribution.svg"
+              alt="TMDb Logo"
+            />
+          </a>
+        </div>
+      </aside>
+      <div class="hamburger-menu" onclick="toggleSidebar()">
+        <span class="hamburger-icon">&#9776;</span>
+      </div>
+      <aside class="sidebar-mobile">
+        <div class="profile">
+          <img
+            src="../../assets/images/logo-no-background.svg"
+            alt="Logo"
+            class="profile-img"
+          />
+        </div>
+        <nav class="nav-menu-mobile">
+          <ul class="mobile-menu">
+            <li>
+              <a href="index.html"><span>🏠</span>Home</a>
+            </li>
+            <li>
+              <a href="watchlist.html"><span>📌</span>Watchlist</a>
+            </li>
+            <li>
+              <a href="genres.html"><span>⚙️</span>Genres</a>
+            </li>
+          </ul>
+          <ul class="instructions-container-mobile">
+            <h3>Getting Started</h3>
+            <li class="instructions-mobile">
+              Browse for your favorite K-Dramas using the search bar.
+            </li>
+            <li class="instructions-mobile">
+              Filter using genres through the sidebar.
+            </li>
+            <li class="instructions-mobile">
+              Click on a poster to view more details.
+            </li>
+            <li class="instructions-mobile">
+              Add or remove K-Dramas from your watchlist using the button below
+              the poster.
+            </li>
+            <li class="instructions-mobile">
+              Access your watchlist through the sidebar.
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      <main class="main-content">
+        <div class="banner-container">
+          <div class="banner-content"></div>
+        </div>
+        <header class="top-nav">
+          <div class="search-bar">
+            <input type="text" placeholder="🔎 Search dramas..." />
+          </div>
+        </header>
+        <section class="drama-section drama-cards-results-section">
+          <h2 class="section-title-three">Search Results</h2>
+          <div class="drama-cards drama-cards-results"></div>
+        </section>
+        <section class="drama-section">
+          <h2 class="section-title-four" id="topRated">Top Rated</h2>
+          <div class="drama-cards drama-cards-top-rated"></div>
+        </section>
+        <section class="drama-section">
+          <h2 class="section-title" id="trending">Trending</h2>
+          <div class="drama-cards drama-cards-trending"></div>
+        </section>
+        <section class="drama-section">
+          <h2 class="section-title-two" id="newest">Upcoming</h2>
+          <div class="drama-cards drama-cards-newest"></div>
+        </section>
+      </main>
     </div>
 
     <script type="module" src="/src/js/pages/main.js"></script>
@@ -99,5 +152,5 @@
     <script type="module" src="/src/js/pages/watchlist.js"></script>
     <script type="module" src="/src/js/modules/config.js"></script>
     <script type="module" src="/src/js/modules/banner.js"></script>
-</body>
+  </body>
 </html>
