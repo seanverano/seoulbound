@@ -1,517 +1,588 @@
 /*FONTS*/
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 /*COLORS*/
 
 :root {
-    --alpha: #f0f2f5;
-    --beta: black;
-    --charlie: #fff;
-    --delta: #F5EFE8;
-    --echo: #968759;
-    --fox: #019963;
+  --alpha: #f0f2f5;
+  --beta: black;
+  --charlie: #fff;
+  --delta: #f5efe8;
+  --echo: #968759;
+  --fox: #019963;
 }
 
-
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--alpha);
-    color: var(--beta);
+  font-family: "Poppins", sans-serif;
+  background-color: var(--alpha);
+  color: var(--beta);
+}
+
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--charlie);
+  z-index: 9999;
+  opacity: 0;
+  animation: fadeIn 2s forwards, fadeOut 2s 2s forwards;
+}
+
+.filmstrip {
+  position: relative;
+  width: 56px;
+  height: 70px;
+  background: var(--fox);
+  margin-top: 20px;
+}
+
+.filmstrip:before,
+.filmstrip:after {
+  content: "";
+  position: absolute;
+  height: 120%;
+  border-left: 3px dashed var(--alpha);
+  animation: roll 4s infinite;
+}
+
+.filmstrip:before {
+  left: 5px;
+}
+
+.filmstrip:after {
+  right: 5px;
+}
+
+@keyframes roll {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: -15px;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.preloader img {
+  display: flex;
+  width: 80%;
+  height: 70%;
 }
 
 .container {
-    display: flex;
-    min-height: 100vh;
+  display: flex;
+  min-height: 100vh;
 }
 
 .sidebar {
-    width: 250px;
-    background-color: var(--charlie);
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  background-color: var(--charlie);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .banner-container {
-    height: 80vh;
-    width: 100%;
-    background-color: var(--alpha);
-    display: flex;
-    align-items: center; 
-    justify-content: center; 
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-    margin-bottom: 2rem;
+  height: 80vh;
+  width: 100%;
+  background-color: var(--alpha);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 2rem;
 }
 
 .banner-content {
-    width: 100%;
-    height: 100%;
-    position: relative;
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 
 .banner-image {
-    display: block; 
-    width: 100%; 
-    height: 100%; 
-    border-radius: 10px;
-    object-fit: cover;
-    transition: opacity 1s ease-in-out; 
-    opacity: 0;
-    z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  transition: opacity 1s ease-in-out;
+  opacity: 0;
+  z-index: 1;
 }
 
-
 .banner-info {
-    position: absolute;
-    left: 20px;
-    bottom: 40px;
-    color: var(--charlie); 
-    padding: 10px;
-    z-index: 2; 
-    transition: opacity 1s ease-in-out; 
-    opacity: 0;
+  position: absolute;
+  left: 20px;
+  bottom: 40px;
+  color: var(--charlie);
+  padding: 10px;
+  z-index: 2;
+  transition: opacity 1s ease-in-out;
+  opacity: 0;
 }
 
 .banner-image.active,
 .banner-info.active {
-    opacity: 1; 
+  opacity: 1;
 }
 
 .banner-info h2 {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 .banner-info p {
-    margin: 5px 0;
+  margin: 5px 0;
 }
 
 .profile {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    text-align: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }
 
 .profile img {
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    margin-bottom: 3rem;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 3rem;
 }
 
-
 .nav-menu {
-    padding: 1rem;
-    margin-bottom: 3rem;
+  padding: 1rem;
+  margin-bottom: 3rem;
 }
 
 .nav-menu ul {
-    list-style: none;
+  list-style: none;
 }
 
 .nav-menu li {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .nav-menu a {
-    color: var(--beta);
-    text-decoration: none;
-    font-size: .75rem;
-    display: flex;
-    align-items: center;
-    transition: color 0.3s;
-    padding: 5px;
-    border-radius: 10px; 
-    border: 1px solid var(--charlie);
+  color: var(--beta);
+  text-decoration: none;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s;
+  padding: 5px;
+  border-radius: 10px;
+  border: 1px solid var(--charlie);
 }
 
 .nav-menu a:hover {
-    color: var(--echo);
-    background-color: var(--delta);
-    border: 1px solid var(--delta);
+  color: var(--echo);
+  background-color: var(--delta);
+  border: 1px solid var(--delta);
 }
 
-
 .nav-menu span {
-    margin-right: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .main-content {
-    width: 100%;
-    flex-grow: 1;
-    padding: 2rem;
-    opacity: 0;
-    transition: opacity 3s ease-in-out;
+  width: 100%;
+  flex-grow: 1;
+  padding: 2rem;
+  opacity: 0;
+  transition: opacity 3s ease-in-out;
 }
 
 .top-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    align-content: center;
-    margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin-bottom: 2rem;
 }
 
 .search-bar {
-    width: 100%;
-    display: flex;
-    align-content: center;
-    align-items: center;
-    gap: 40px;
+  width: 100%;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  gap: 40px;
 }
 
 .search-bar input {
-    width: 100%;
-    background-color: var(--delta);
-    padding: 0.5rem 1rem;
-    border: 1px solid var(--echo);
-    border-radius: 20px;
-    font-size: 1rem;
-    width: 250px;
-    flex: 1;
+  width: 100%;
+  background-color: var(--delta);
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--echo);
+  border-radius: 20px;
+  font-size: 1rem;
+  width: 250px;
+  flex: 1;
 }
 
 .instructions-container {
-    background-color: var(--delta);
-    padding: 20px;
-    margin-top: 3rem; 
-    padding-top: 1rem; 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-   
+  background-color: var(--delta);
+  padding: 20px;
+  margin-top: 3rem;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .instructions-container h3 {
-    color: var(--fox);
-    margin-bottom: 1rem;
-    text-align: center;
+  color: var(--fox);
+  margin-bottom: 1rem;
+  text-align: center;
 }
 
 .instructions {
-    color: var(--beta);
-    font-size: .65rem;  
+  color: var(--beta);
+  font-size: 0.65rem;
 }
 
 .drama-section h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    position: relative;
-    display: inline-block;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
 }
 
 .drama-section h2::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background-color: var(--fox);
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--fox);
 }
 
 .drama-cards {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .card-row {
-    justify-content: center;
-    display: flex;
-    gap: 1.5rem; 
+  justify-content: center;
+  display: flex;
+  gap: 1.5rem;
 }
 
 .card {
-    cursor: pointer;
-    flex: 1;
-    background-color: var(--charlie);
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    max-width: 200px; 
-    max-height: 300px; 
-    margin-bottom: 1rem;
-    transition: transform 0.3s, box-shadow 0.3s; 
+  cursor: pointer;
+  flex: 1;
+  background-color: var(--charlie);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  max-width: 200px;
+  max-height: 300px;
+  margin-bottom: 1rem;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover {
-    transform: scale(1.05); 
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .card img {
-    width: 100%;
-    height: 75%;
-    object-fit: cover;
+  width: 100%;
+  height: 75%;
+  object-fit: cover;
 }
 
 .card-info {
-    height: 25%;
-    padding: 0.5rem;
-    background-color: var(--charlie);
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 0.5rem;
-    overflow: hidden;
+  height: 25%;
+  padding: 0.5rem;
+  background-color: var(--charlie);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
 }
 
 .card-info-top {
-    margin-bottom: 0.25rem;
+  margin-bottom: 0.25rem;
 }
 
 .card-info-top h3 {
-    font-size: 0.7rem;
-    margin: 0;
+  font-size: 0.7rem;
+  margin: 0;
 }
 
 .card-info-bottom {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
 }
 .card-info-bottom p {
-    font-size: 0.5rem;
-    color: #777;
-    margin: 0;
+  font-size: 0.5rem;
+  color: #777;
+  margin: 0;
 }
 
-.card-button, .card-button-two {
-    font-size: .55rem;
-    text-decoration: none;
-    background-color: var(--fox);
-    color: var(--charlie);
-    border: none;
-    cursor: pointer;
-    border-radius: 10px;
-    padding: 5px;
-    display: inline-block;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.card-button,
+.card-button-two {
+  font-size: 0.55rem;
+  text-decoration: none;
+  background-color: var(--fox);
+  color: var(--charlie);
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 5px;
+  display: inline-block;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .card-button:hover {
-    color: var(--beta);
-    background-color: var(--alpha);
+  color: var(--beta);
+  background-color: var(--alpha);
 }
 
 .card-button-two:hover {
-    color: var(--beta);
-    background-color: var(--alpha);
+  color: var(--beta);
+  background-color: var(--alpha);
 }
 
 .drama-cards-results-section {
-    display: none; 
+  display: none;
 }
 
 .drama-cards-results {
-    display: flex; 
+  display: flex;
 }
 
 .drama-cards-results-section.hidden .search-results-heading {
-    display: none;
+  display: none;
 }
 
 .details-container {
-    text-align: justify;
-    margin: 1rem;
+  text-align: justify;
+  margin: 1rem;
 }
 
 .actor-list {
-    background-color: var(--charlie);
-    justify-content: center;
-    display: flex;
-    gap: 10px;
-    margin: .5rem;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: var(--charlie);
+  justify-content: center;
+  display: flex;
+  gap: 10px;
+  margin: 0.5rem;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .actor-card {
-    margin-top: .5rem;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s; 
+  margin-top: 0.5rem;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .actor-card img:hover {
-    transform: scale(1.05); 
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .actor-card img {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 150px;
-    height: 225px;
-    object-fit: cover;
-    border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 150px;
+  height: 225px;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
 .actor-card p {
-    margin-top: 5px;
-    font-weight: bold;
+  margin-top: 5px;
+  font-weight: bold;
 }
 
 .show-title {
-    margin: .5rem;
-    background-color: var(--charlie);
-    border-radius: 5px;
-    text-align: center;
-    font-size: 3rem;
-    color: var(--fox);
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  margin: 0.5rem;
+  background-color: var(--charlie);
+  border-radius: 5px;
+  text-align: center;
+  font-size: 3rem;
+  color: var(--fox);
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .back-button-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .back-button {
-    text-decoration: none;
-    background-color: var(--fox);
-    color: var(--charlie);
-    border: none;
-    margin: .5rem;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 30px;
-    display: inline-block;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  background-color: var(--fox);
+  color: var(--charlie);
+  border: none;
+  margin: 0.5rem;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 30px;
+  display: inline-block;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .back-button:hover {
-    color: var(--beta);
-    background-color: var(--charlie);
+  color: var(--beta);
+  background-color: var(--charlie);
 }
 
-
 .main-content.fade-in {
-    opacity: 1;
+  opacity: 1;
 }
 
 .watchlist-header h1 {
-    margin: .5rem;
-    background-color: var(--charlie);
-    border-radius: 5px;
-    text-align: center;
-    font-size: 3rem;
-    color: var(--fox);
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  margin: 0.5rem;
+  background-color: var(--charlie);
+  border-radius: 5px;
+  text-align: center;
+  font-size: 3rem;
+  color: var(--fox);
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .attribution {
-    background-color: var(--delta);
-    margin-top: auto; 
-    margin-left: 1rem;
-    margin-right: 1rem;
-    padding: 1rem;
-    text-align: center; 
-    margin-bottom: 2rem;
+  background-color: var(--delta);
+  margin-top: auto;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  padding: 1rem;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .attribution p {
-    font-size: .55rem;
-    color: var(--echo);
-    margin: 0.5rem 0;
+  font-size: 0.55rem;
+  color: var(--echo);
+  margin: 0.5rem 0;
 }
 
 .attribution img {
-    max-width: 200px; 
+  max-width: 200px;
 }
 
 .grid-watchlist-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); 
-    gap: 20px; 
-    padding: 20px; 
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
 }
 
 .trailer-container {
-    margin: .5rem;
-    display: flex;
-    background: var(--beta);
-    justify-content: center;
-    border-radius: 5px;
+  margin: 0.5rem;
+  display: flex;
+  background: var(--beta);
+  justify-content: center;
+  border-radius: 5px;
 }
 
-
 .kdrama-section {
-    margin: 20px 0;
-    padding: 20px;
-    background-color: var(--alpha);
+  margin: 20px 0;
+  padding: 20px;
+  background-color: var(--alpha);
 }
 
 .genre-filter {
-    font-family: 'Poppins', sans-serif;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
 
 .genre-filter select {
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    color: var(--echo);
-    background-color: var(--delta);
-    border: 1px solid var(--echo);
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  color: var(--echo);
+  background-color: var(--delta);
+  border: 1px solid var(--echo);
 }
 
 .kdrama-cards-container {
-    display: grid;
-    justify-content: center;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
 }
 
-.genre-header h1{
-    margin: .5rem;
-    background-color: var(--charlie);
-    border-radius: 5px;
-    text-align: center;
-    font-size: 3rem;
-    color: var(--fox);
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+.genre-header h1 {
+  margin: 0.5rem;
+  background-color: var(--charlie);
+  border-radius: 5px;
+  text-align: center;
+  font-size: 3rem;
+  color: var(--fox);
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar-mobile {
-    display: none;
+  display: none;
 }
 
 .hamburger-menu {
-    cursor: pointer;
-    display: none;
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    z-index: 1000;
+  cursor: pointer;
+  display: none;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
 }
 
 .hamburger-icon {
-    font-size: 24px;
-    color: var(--fox);
+  font-size: 24px;
+  color: var(--fox);
 }
