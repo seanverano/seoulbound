@@ -1,2 +1,3 @@
-# seoul-binge
+# Seoulbound
+
 wip
